@@ -39,12 +39,12 @@ if (ambiente === 'development'){
 
 // Aqui o mapemanto das rotas da aplicação. Todos esses mapeamentos fazem parte da aplicação
 // A cada require, o js é inicializando
-api.use('/api/login', require('./controllers/api/login.controller'));
-api.use('/api/item', require('./controllers/api/item.controller'));
-api.use('/api/fazenda', require('./controllers/api/fazenda.controller'));
-api.use('/api/cliente', require('./controllers/api/cliente.controller'));
-api.use('/api/talhao', require('./controllers/api/talhao.controller'));
-api.use('/api/plantacao', require('./controllers/api/plantacao.controller'));
+api.use('/api/login', require('/controllers/api/login.controller'));
+api.use('/api/item', require('/controllers/api/item.controller'));
+api.use('/api/fazenda', require('/controllers/api/fazenda.controller'));
+api.use('/api/cliente', require('/controllers/api/cliente.controller'));
+api.use('/api/talhao', require('/controllers/api/talhao.controller'));
+api.use('/api/plantacao', require('/controllers/api/plantacao.controller'));
 // start server API
 var serverAPI = api.listen(apiPort, function () {
     console.log('Server API listening at http://' + serverAPI.address().address + ':' + serverAPI.address().port);

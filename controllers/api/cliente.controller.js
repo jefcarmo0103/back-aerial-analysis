@@ -2,7 +2,7 @@ var config = require('config.json');
 var express = require('express');
 var router = express.Router();
 
-var ClienteService = require('services/Cliente.service')
+var ClienteService = require('services/cliente.service')
 
 // routes
 router.post('/register', registerCliente);

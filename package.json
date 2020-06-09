@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "MEAN Stack User Registration and Login Example Application",
     "scripts": {
-        "start": "cd ./server.js && npm start"
+        "start": "node server.js"
     },
     "repository": {
         "type": "git",

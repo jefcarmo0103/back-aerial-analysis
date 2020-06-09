@@ -2,7 +2,7 @@ var config = require('config.json');
 var express = require('express');
 var router = express.Router();
 
-var FazendaService = require('services/Fazenda.service')
+var FazendaService = require('services/fazenda.service')
 
 // routes
 router.post('/register', registerFazenda);

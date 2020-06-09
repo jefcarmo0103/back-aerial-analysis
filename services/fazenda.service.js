@@ -14,8 +14,22 @@ service.getById = getById;
 service.create = create;
 service.delete = _delete;
 service.update = update;
+service.getByUser = getByUser;
 
 module.exports = service;
+
+function getByUser(iduser){
+    var deferred = Q.defer();
+
+    db.Fazenda.find({ClienteID: iduser}).toArray(function (err, result) {
+        if (err)
+            deferred.reject(err.name + ': ' + err.message);
+
+        deferred.resolve(result);
+    });
+
+    return deferred.promise;
+}
 
 function getAll() {
     var deferred = Q.defer();

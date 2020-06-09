@@ -6,12 +6,22 @@ var FazendaService = require('services/fazenda.service')
 
 // routes
 router.post('/register', registerFazenda);
-router.get('/:_id', getCurrentFazenda);
 router.put('/:_id', updateFazenda);
 router.delete('/:_id', deleteFazenda);
-router.get('/',getAllFazenda);
+router.get('/', getAllFazenda);
+router.get('/user/:_iduser', getFazendasByUser);
 
 module.exports = router;
+
+function getFazendasByUser(req,res){
+    FazendaService.getByUser(req.params._iduser)
+        .then((fazendas) => {
+            res.status(200).send(fazendas);
+        })
+        .catch((err) => {
+            res.status(400).send(err);
+        });
+}
 
 function getAllFazenda(req,res){
     FazendaService.getAll()
@@ -27,20 +37,6 @@ function registerFazenda(req, res) {
     FazendaService.create(req.body)
         .then(function () {
             res.sendStatus(200);
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
-}
-
-function getCurrentFazenda(req, res) {
-    FazendaService.getById(req.params._id)
-        .then(function (Fazenda) {
-            if (Fazenda) {
-                res.send(Fazenda);
-            } else {
-                res.sendStatus(404);
-            }
         })
         .catch(function (err) {
             res.status(400).send(err);

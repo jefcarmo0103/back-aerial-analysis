@@ -27,9 +27,10 @@ api.use(bodyParser.json());
 
 // Definição do CORS para permitir acesso externo
 // Isso tem que acontecer antes da criação das rotas
-if (ambiente === 'development'){
-    api.use(cors());
-}
+// if (ambiente === 'development'){
+//     api.use(cors());
+// }
+api.use(cors());
 
 
 // Essa configuração na API indica que haverá JWT para cada endpoint / rota método, com exceção dos métodos

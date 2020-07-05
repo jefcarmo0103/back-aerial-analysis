@@ -10,11 +10,23 @@ router.get('/:_id', getCurrentTalhao);
 router.put('/:_id', updateTalhao);
 router.delete('/:_id', deleteTalhao);
 router.get('/',getAllTalhao);
+router.get('/farm/:_idfarm', getByFarm);
 
 module.exports = router;
 
+
 function getAllTalhao(req,res){
     TalhaoService.getAll()
+        .then(function (Talhaos) {
+            res.send(Talhaos);
+        })
+        .catch(function (err){
+            res.status(400).send(err);
+        });
+}
+
+function getByFarm(req,res){
+    TalhaoService.getByFarm(req.params._idfarm)
         .then(function (Talhaos) {
             res.send(Talhaos);
         })

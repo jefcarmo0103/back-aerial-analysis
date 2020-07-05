@@ -30,6 +30,7 @@ api.use(bodyParser.json());
 // if (ambiente === 'development'){
 //     api.use(cors());
 // }
+
 api.use(cors());
 
 

@@ -14,6 +14,7 @@ service.getById = getById;
 service.create = create;
 service.delete = _delete;
 service.update = update;
+service.getByFarm = getByFarm;
 
 module.exports = service;
 
@@ -21,6 +22,19 @@ function getAll() {
     var deferred = Q.defer();
 
     db.Talhao.find({}).toArray(function (err, result) {
+        if (err)
+            deferred.reject(err.name + ': ' + err.message);
+
+        deferred.resolve(result);
+    });
+
+    return deferred.promise;
+}
+
+function getByFarm(idFarm){
+    var deferred = Q.defer();
+
+    db.Talhao.find({FazendaID: idFarm}).toArray(function (err, result) {
         if (err)
             deferred.reject(err.name + ': ' + err.message);
 
